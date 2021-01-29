@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shared Codepad | Divine property</title>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e83535;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #e83535;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #e83535;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+<body style="background: #151716;color: #000000;position: fixed; left: 15%;">
+<center>
+<div style="position: fixed">
+<form action="/" method="post">
+<label>Syntax Highlighting</label>
+<select id="syntax" name="syntax">
+    <option selected="">none</option>
+    <option>python</option>
+    <option>go</option>
+    <option>javascript</option>
+    <option>cpp</option>
+    <option>java</option>    
+    <option>csharp</option>
+    <option>htmlmixed</option>
+    <option>ruby</option>
+    <option>xml</option>
+    <option>shell</option>
+    <option>rust</option>
+    <option>powershell</option>
+    <option>perl</option>
+    <option>php</option>
+    <option>haskell</option>
+</select>
+	<label for="body">Captcha</label><input type="text" id="captcha" name="captcha" maxlength="2">
+	<input type="hidden" id="solution" name="solution">
+  <input type="submit" value="Create new">
+  </form>
+</div>
+</center>
+<script>
+number1 = Math.floor(Math.random() * 10);
+number2 = Math.floor(Math.random() * 10);
+number3 = number1 + number2;
+field = number1.toString() + "+" + number2.toString() + "=";
+document.getElementById("captcha").placeholder=field;
+document.getElementById("solution").value=number3.toString();
+</script>
+</body>
+</html>
