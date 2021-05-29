@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head id="head">
+<title>Shared Codepad | Divine property</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/3024-day.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/3024-night.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/abcdef.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/ambiance.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/ayu-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/ayu-mirage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/base16-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/bespin.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/base16-light.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/blackboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/cobalt.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/colorforth.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/dracula.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/duotone-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/duotone-light.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/eclipse.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/elegant.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/erlang-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/gruvbox-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/hopscotch.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/icecoder.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/isotope.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/lesser-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/liquibyte.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/lucario.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/material.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/material-darker.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/material-palenight.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/material-ocean.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/mbo.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/mdn-like.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/ambiance.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/monokai.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/moxer.cs') }}s">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/neat.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/neo.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/night.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/nord.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/oceanic-next.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/panda-syntax.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/paraiso-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/paraiso-light.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/pastel-on-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/railscasts.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/rubyblue.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/seti.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/shadowfox.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/solarized.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/the-matrix.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/tomorrow-night-bright.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/tomorrow-night-eighties.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/ttcn.cs') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/twilight.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/vibrant-ink.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/xq-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/xq-light.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/yeti.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/idea.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/darcula.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/yonce.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'theme/zenburn.css') }}">
+<link rel="stylesheet" href="lib/codemirror.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+<script>
+var syntax = "{{ syntax }}";
+var syntax_arg = "{{ syntax_arg }}";
+var code = "{{ code }}";
+var data = "";
+</script>
+<script src="{{ url_for('static', filename = 'lib/codemirror.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'lib/codemirror.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'display/fullscreen.css') }}">
+<script src="{{ url_for('static', filename = 'display/fullscreen.js') }}"></script>
+<script src="{{ url_for('static', filename = 'mode/' + syntax + '/' + syntax + '.js') }}"></script>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e83535;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: #e83535;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+textarea, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 0px solid #000000;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #e83535;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #e83535;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body style="background: #151716;color: #e83535;">
+<p>Select a theme: <select onchange="selectTheme()" id="select">
+    <option selected="">default</option>
+    <option>3024-day</option>
+    <option>3024-night</option>
+    <option>abcdef</option>
+    <option>ambiance</option>
+    <option>ayu-dark</option>
+    <option>ayu-mirage</option>
+    <option>base16-dark</option>
+    <option>base16-light</option>
+    <option>bespin</option>
+    <option>blackboard</option>
+    <option>cobalt</option>
+    <option>colorforth</option>
+    <option>darcula</option>
+    <option>dracula</option>
+    <option>duotone-dark</option>
+    <option>duotone-light</option>
+    <option>eclipse</option>
+    <option>elegant</option>
+    <option>erlang-dark</option>
+    <option>gruvbox-dark</option>
+    <option>hopscotch</option>
+    <option>icecoder</option>
+    <option>idea</option>
+    <option>isotope</option>
+    <option>lesser-dark</option>
+    <option>liquibyte</option>
+    <option>lucario</option>
+    <option>material</option>
+    <option>material-darker</option>
+    <option>material-palenight</option>
+    <option>material-ocean</option>
+    <option>mbo</option>
+    <option>mdn-like</option>
+    <option>midnight</option>
+    <option>monokai</option>
+    <option>moxer</option>
+    <option>neat</option>
+    <option>neo</option>
+    <option>night</option>
+    <option>nord</option>
+    <option>oceanic-next</option>
+    <option>panda-syntax</option>
+    <option>paraiso-dark</option>
+    <option>paraiso-light</option>
+    <option>pastel-on-dark</option>
+    <option>railscasts</option>
+    <option>rubyblue</option>
+    <option>seti</option>
+    <option>shadowfox</option>
+    <option>solarized dark</option>
+    <option>solarized light</option>
+    <option>the-matrix</option>
+    <option>tomorrow-night-bright</option>
+    <option>tomorrow-night-eighties</option>
+    <option>ttcn</option>
+    <option>twilight</option>
+    <option>vibrant-ink</option>
+    <option>xq-dark</option>
+    <option>xq-light</option>
+    <option>yeti</option>
+    <option>yonce</option>
+    <option>zenburn</option>
+</select>
+</p>
+<div>
+<textarea type="text" id="body" name="body" style="height: 1500px">{{ content }}</textarea>
+</div>
+<p id='fullscreen'>Press F11 for fullscreen</p>
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("body"), {
+    lineNumbers: true,
+    matchBrackets: true,
+    extraKeys: {
+        "F11": function(cm) {
+          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        "Esc": function(cm) {
+          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }
+      }
+  });
+  if (syntax_arg === 'clike-java')
+  {
+      editor.setOption("mode", "text/x-java");
+  }
+  else if (syntax_arg === 'clike-csharp')
+  {
+      editor.setOption("mode", "text/x-csharp");
+  }
+  else if (syntax_arg === 'clike-cpp')
+  {
+      editor.setOption("mode", "text/x-c++src");
+  }
+var input = document.getElementById("select");
+  function selectTheme() {
+    var theme = input.options[input.selectedIndex].textContent;
+    editor.setOption("theme", theme);
+    location.hash = "#" + theme;
+  }
+  var choice = (location.hash && location.hash.slice(1)) ||
+               (document.location.search &&
+                decodeURIComponent(document.location.search.slice(1)));
+  if (choice) {
+    input.value = choice;
+    editor.setOption("theme", choice);
+  }
+  CodeMirror.on(window, "hashchange", function() {
+    var theme = location.hash.slice(1);
+    if (theme) { input.value = theme; selectTheme(); }
+  });
+
+var source = new EventSource("/refresh=" + code);
+source.onmessage = function (event) {
+   if (editor.getValue() !== JSON.parse(event.data).value){
+      data = JSON.parse(event.data).value;
+	  editor.getDoc().setValue(data);
+   }
+}
+
+var socket = io("/");
+socket.on("update", (updatedata) => {
+  if (editor.getValue() !== updatedata) {
+    editor.getDoc().setValue(updatedata);
+  }
+});
+
+editor.on('change',function(cMirror){
+  socket.emit("update", { data: editor.getValue(), password: code });
+});
+</script>
+</body>
+</html>
